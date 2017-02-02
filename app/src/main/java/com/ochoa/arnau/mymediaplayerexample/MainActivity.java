@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ImageButton buttonPlay, buttonPause, buttonStop;
 
     Boolean playing = false;
-    
+
     BoundService bService;
     boolean bound = false;
     Intent intent;
@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             BoundService.MyBinder mBinder = (BoundService.MyBinder) binder;
             bService = mBinder.getService();
             bound = true;
+            Log.d("service", "onServiceConnected: SERVICE CONNECTED");
         }
 
         @Override
@@ -66,7 +67,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.playButton:
-                Log.d("MediaPlayer","onClick: play");
                 if(!playing && bound){
                     bService.play();
                     playing = true;

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Binder;
 import android.os.IBinder;
+import android.util.Log;
 
 import java.io.IOException;
 
@@ -36,7 +37,7 @@ public class BoundService extends Service {
     public void play(){
         try {
             mediaPlayer.prepare();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         mediaPlayer.start();
