@@ -38,7 +38,6 @@ public class BoundService extends Service {
         try {
             mediaPlayer.prepare();
         } catch (Exception e) {
-
             e.printStackTrace();
         }
         mediaPlayer.start();
